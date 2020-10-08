@@ -145,7 +145,7 @@ async function predict() {
     buffer[e++] = (rgbaBuffer[i] || rgbaBuffer[i+1] || rgbaBuffer[i+3]) ? 1 : 0;
   }
 
-  /*START DRAW*/
+  /* SHOW NUMBER DRAWN in the browser console */
   for(let y=0; y<28; y++) {
     let line = "";
     for(let x=0; x<28; x++) {
@@ -153,7 +153,7 @@ async function predict() {
     }
     console.log(line);
   }
-  /*END DRAW*/
+  /*END SHOW NUMBER*/
 
   socket.emit("predictionRequest", buffer.buffer)
 }
