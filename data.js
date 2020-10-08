@@ -183,14 +183,6 @@ class MnistDataset {
     };
   }
 
-  getFirstTensorFromDataset() {
-    let image = new Float32Array(IMAGE_HEIGHT*IMAGE_WIDTH);
-    for(let i = 0; i<IMAGE_HEIGHT*IMAGE_WIDTH; i++) {
-      image[i] = this.dataset[0][0][i] > 0 ? 1 : 0;
-    }
-
-    return tf.tensor4d(image, [1, IMAGE_HEIGHT, IMAGE_WIDTH, 1]);
-  }
 }
 
 module.exports = new MnistDataset();

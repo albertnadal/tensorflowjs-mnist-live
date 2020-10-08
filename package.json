@@ -10,10 +10,13 @@
   },
   "dependencies": {
     "@tensorflow/tfjs-node": "2.0.0",
-    "argparse": "^1.0.10"
+    "argparse": "^1.0.10",
+    "express": "^4.16.3",
+    "socket.io": "^2.1.1"
   },
   "scripts": {
-    "train": "node trainer.js"
+    "train": "node trainer.js --epochs 1 --model_save_path trained_model",
+    "serve": "node server.js --model_path trained_model"
   },
   "devDependencies": {
     "clang-format": "~1.2.2"

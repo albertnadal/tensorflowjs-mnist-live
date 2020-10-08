@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Handwritten Digit Recognizer</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<div class="container">
+		<div class="digit-demo-container">
+			<h3 id="digit-recognizer-live-demo">Draw a number in the black box</h3>
+			<div class="flex-two" style="margin-top: 20px;">
+
+			</div>
+			<div class="flex-two">
+				<div id="canvas_box_wrapper" class="canvas-box-wrapper">
+					<div id="canvas_box" class="canvas-box"></div>
+          <button id="clear_canvas" class="material-button-pink" onclick="clearCanvas(this.id)">CLEAR</button>
+				</div>
+				<div id="result_box">
+          <table>
+            <tr>
+              <td>
+                <div class="center" id="first_result">?</div>
+              </td>
+              <td>
+                <div class="center" id="second_result">?</div>
+              </td>
+              <td>
+                <div class="center" id="third_result">?</div>
+              </td>
+            </tr>
+          </table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>
