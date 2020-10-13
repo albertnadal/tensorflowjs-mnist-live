@@ -1,3 +1,5 @@
+// Usage: node server.js --model_path trained_model
+
 /* You can disable Tensorflow warnings with the command 'export TF_CPP_MIN_LOG_LEVEL=2' */
 
 const tf = require('@tensorflow/tfjs-node');
@@ -48,14 +50,13 @@ function onNewWebsocketConnection(socket) {
         float32buffer[i] = uint8buffer[i];
       }
 
-      /*START DRAW*/
+      /* Draw input image in the stdout */
       for(let y=0; y<IMAGE_HEIGHT; y++) {
         for(let x=0; x<IMAGE_WIDTH; x++) {
           process.stdout.write(msg[y*IMAGE_WIDTH + x]+" ");
         }
         process.stdout.write("\n");
       }
-      /*END DRAW*/
 
       let inputTensor = tf.tensor4d(float32buffer, [1, IMAGE_HEIGHT, IMAGE_WIDTH, 1]);
       let predictions = await model.predict(inputTensor, {verbose: true}).data();
